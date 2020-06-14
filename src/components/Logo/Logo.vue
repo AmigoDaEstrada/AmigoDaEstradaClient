@@ -1,5 +1,5 @@
 <template>
-    <div class="logo" :class="`logo--${ variant }`">
+    <div class="logo" :class="`logo--${ variant } logo--${ size }`">
         <Truck :variant="variant" class="logo__image" />
         <div class="logo__text">
             <h1 class="title">Amigo</h1>
@@ -19,7 +19,8 @@ export default {
         Truck
     },
     props: {
-        variant: String
+        variant: String,
+        size: String
     }
 }
 </script>
@@ -52,7 +53,6 @@ export default {
     
             .subtitle {
                 font-size: 18px;
-                margin-bottom: 4px;
             }
         
         }
@@ -61,6 +61,24 @@ export default {
             
             #{$this}__text {                
                 color: $color-blue;
+            }
+        }
+
+        &--small {
+            #{$this}__image {
+                width: 40px;
+                margin-right: spacing(1);
+            }
+
+            #{$this}__text {
+                .title {
+                    font-size: 18px;
+                    margin-bottom: 2px;
+                }
+        
+                .subtitle {
+                    font-size: 10px;
+                }
             }
         }
     }

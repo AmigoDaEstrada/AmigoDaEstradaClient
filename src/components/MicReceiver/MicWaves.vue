@@ -1,0 +1,115 @@
+<template>
+    <div class="mic-waves">
+        <svg class="mic-waves__mic" viewBox="0 0 55 79" xmlns="http://www.w3.org/2000/svg">
+            <path d="M54.092 33.219C54.092 31.5759 52.7305 30.2144 51.0873 30.2144C49.4442 30.2144 48.0827 31.5759 48.0827 33.219V39.2282C48.0827 50.8241 38.6464 60.2605 27.0505 60.2605C15.4546 60.2605 6.01825 50.8241 6.01825 39.2282V33.219C6.01825 31.5759 4.65678 30.2144 3.01364 30.2144C1.3705 30.2144 0.0090332 31.5759 0.0090332 33.219V39.2282C0.0090332 53.1245 10.5252 64.5796 24.0459 66.0819V72.2789H12.0275C10.3843 72.2789 9.02285 73.6404 9.02285 75.2835C9.02285 76.9267 10.3843 78.2881 12.0275 78.2881H42.0735C43.7167 78.2881 45.0781 76.9267 45.0781 75.2835C45.0781 73.6404 43.7167 72.2789 42.0735 72.2789H30.0551V66.0819C43.5758 64.5796 54.092 53.1245 54.092 39.2282V33.219ZM42.0735 15.1914C42.0735 6.92871 35.3132 0.168335 27.0505 0.168335C18.7878 0.168335 12.0275 6.92871 12.0275 15.1914V39.2282C12.0275 47.4909 18.7878 54.2513 27.0505 54.2513C35.3132 54.2513 42.0735 47.4909 42.0735 39.2282V15.1914Z"/>
+        </svg>
+
+        <svg class="mic-waves__waves" viewBox="0 0 223 141" xmlns="http://www.w3.org/2000/svg">
+            <path class="mic-waves_wave" d="M7.78897 69.5089C7.78897 67.4366 5.9757 65.6234 3.90339 65.6234C1.83109 65.6234 0.0178223 67.4366 0.0178223 69.5089V70.5451C0.0178223 72.6174 1.83109 74.4307 3.90339 74.4307C5.9757 74.4307 7.78897 72.6174 7.78897 70.5451V69.5089Z" fill="url(#paint0_linear)"/>
+            <path class="mic-waves_wave" d="M76.6934 66.6593C76.6934 64.587 74.8801 62.7737 72.8078 62.7737C70.7355 62.7737 68.9222 64.587 68.9222 66.6593V73.3943C68.9222 75.4666 70.7355 77.2798 72.8078 77.2798C74.8801 77.2798 76.6934 75.4666 76.6934 73.3943V66.6593Z" fill="url(#paint1_linear)"/>
+            <path class="mic-waves_wave" d="M65.2953 38.6833C65.2953 36.611 63.4821 34.7978 61.4098 34.7978C59.3375 34.7978 57.5242 36.611 57.5242 38.6833V101.371C57.5242 103.443 59.3375 105.256 61.4098 105.256C63.4821 105.256 65.2953 103.443 65.2953 101.371V38.6833Z" fill="url(#paint2_linear)"/>
+            <path class="mic-waves_wave" d="M53.898 17.7012C53.898 15.6289 52.0847 13.8157 50.0124 13.8157C47.9401 13.8157 46.1268 15.6289 46.1268 17.7012V122.353C46.1268 124.425 47.9401 126.238 50.0124 126.238C52.0847 126.238 53.898 124.425 53.898 122.353V17.7012Z" fill="url(#paint3_linear)"/>
+            <path class="mic-waves_wave" d="M42.2412 3.97212C42.2412 1.89981 40.4279 0.0865479 38.3556 0.0865479C36.2833 0.0865479 34.47 1.89981 34.47 3.97212V136.341C34.47 138.413 36.2833 140.226 38.3556 140.226C40.4279 140.226 42.2412 138.413 42.2412 136.341V3.97212Z" fill="url(#paint4_linear)"/>
+            <path class="mic-waves_wave" d="M30.8431 51.6352C30.8431 49.5629 29.0299 47.7496 26.9576 47.7496C24.8853 47.7496 23.072 49.5629 23.072 51.6352V88.4186C23.072 90.4909 24.8853 92.3042 26.9576 92.3042C29.0299 92.3042 30.8431 90.4909 30.8431 88.4186V51.6352Z" fill="url(#paint5_linear)"/>
+            <path class="mic-waves_wave" d="M19.4458 62.7737C19.4458 60.7014 17.6325 58.8881 15.5602 58.8881C13.4879 58.8881 11.6746 60.7014 11.6746 62.7737V77.2798C11.6746 79.3521 13.4879 81.1654 15.5602 81.1654C17.6325 81.1654 19.4458 79.3521 19.4458 77.2798V62.7737Z" fill="url(#paint6_linear)"/>
+            
+            <path class="mic-waves_wave" d="M154.337 35.834C154.337 33.7617 152.524 31.9484 150.451 31.9484C148.379 31.9484 146.566 33.7617 146.566 35.834V104.22C146.566 106.292 148.379 108.106 150.451 108.106C152.524 108.106 154.337 106.292 154.337 104.22V35.834Z" fill="url(#paint7_linear)"/>
+            <path class="mic-waves_wave" d="M211.584 68.4727C211.584 66.4004 209.771 64.5871 207.698 64.5871C205.626 64.5871 203.813 66.4004 203.813 68.4727V71.5811C203.813 73.6534 205.626 75.4667 207.698 75.4667C209.771 75.4667 211.584 73.6534 211.584 71.5811V68.4727Z" fill="url(#paint8_linear)"/>
+            <path class="mic-waves_wave" d="M200.186 60.4426C200.186 58.3703 198.373 56.557 196.301 56.557C194.229 56.557 192.415 58.3703 192.415 60.4426V79.6114C192.415 81.6837 194.229 83.497 196.301 83.497C198.373 83.497 200.186 81.6837 200.186 79.6114V60.4426Z" fill="url(#paint9_linear)"/>
+            <path class="mic-waves_wave" d="M188.789 35.834C188.789 33.7617 186.976 31.9484 184.904 31.9484C182.831 31.9484 181.018 33.7617 181.018 35.834V104.22C181.018 106.292 182.831 108.106 184.904 108.106C186.976 108.106 188.789 106.292 188.789 104.22V35.834Z" fill="url(#paint10_linear)"/>
+            <path class="mic-waves_wave" d="M222.982 69.5089C222.982 67.4366 221.169 65.6234 219.096 65.6234C217.024 65.6234 215.211 67.4366 215.211 69.5089V70.5451C215.211 72.6174 217.024 74.4307 219.096 74.4307C221.169 74.4307 222.982 72.6174 222.982 70.5451V69.5089Z" fill="url(#paint11_linear)"/>
+            <path class="mic-waves_wave" d="M177.132 13.8157C177.132 11.7434 175.319 9.93017 173.247 9.93017C171.174 9.93017 169.361 11.7434 169.361 13.8157V126.238C169.361 128.311 171.174 130.124 173.247 130.124C175.319 130.124 177.132 128.311 177.132 126.238V13.8157Z" fill="url(#paint12_linear)"/>
+            <path class="mic-waves_wave" d="M165.734 43.8641C165.734 41.7918 163.921 39.9785 161.849 39.9785C159.776 39.9785 157.963 41.7918 157.963 43.8641V96.1898C157.963 98.2621 159.776 100.075 161.849 100.075C163.921 100.075 165.734 98.2621 165.734 96.1898V43.8641Z" fill="url(#paint13_linear)"/>
+            
+            <defs>
+                <linearGradient id="paint0_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint1_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint2_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint3_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint4_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint5_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint6_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint7_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint8_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint9_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint10_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint11_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint12_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+                <linearGradient id="paint13_linear" x1="161.849" y1="39.9785" x2="161.849" y2="100.075" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#071D5A"/>
+                    <stop offset="1" stop-color="#00103D" stop-opacity="0.38"/>
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+</template>
+
+<script>
+export default {
+    
+}
+</script>
+
+<style lang="scss" scoped>
+    .mic-waves {
+
+        position: relative;
+        height: 150px;
+        width: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__mic {
+            position: absolute;
+            width: 55px;
+            height: 79px;
+            fill: $color-white;
+            fill-opacity: 0.65;
+        }
+
+        &__waves {
+            width: 223px;
+            height: 141px;
+        }
+    }
+</style>

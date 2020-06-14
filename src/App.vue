@@ -13,7 +13,7 @@ export default {
     MobileOnlyWarning
   },
   mounted() {
-    let token = localStorage.getItem('USER_TOKEN');
+    /*let token = localStorage.getItem('USER_TOKEN');
     let basePath = '/';
     let currentPath = this.$router.currentRoute.path;
 
@@ -26,7 +26,7 @@ export default {
           this.$router.push('/home');
         }
       });
-    }
+    }*/
   }
 }
 </script>

@@ -75,7 +75,7 @@ export default {
         &__description {
             margin-top: spacing(1);
             line-height: 1.3em;
-            max-width: 80%;
+            max-width: 90%;
         }
 
         &__navigation {

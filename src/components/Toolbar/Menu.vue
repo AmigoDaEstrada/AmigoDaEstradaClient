@@ -1,19 +1,16 @@
 <template>
-	<div class="toolbar">
-		<Logo variant="blue" class="toolbar__logo" />
-		<Profile class="toolbar__profile" />
+	<div class="menu">
+		<Hamburguer class="toolbar__hamburguer" />
 	</div>
 </template>
 
 <script>
-import Logo from '@/components/Logo/Logo.vue';
-import Profile from '@/components/Toolbar/Profile.vue';
+import Hamburguer from '@/components/Toolbar/Hamburguer.vue';
 
 export default {
-	name: 'Toolbar',
+	name: 'Menu',
 	components: {
-		Logo,
-		Profile
+		Hamburguer
 	},
 	data() {
 		return {

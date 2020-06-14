@@ -46,5 +46,11 @@ export default {
             color: $color-blue;
             border: solid 1px $color-blue;
         }
+
+        &--red {
+            background-color: $color-red;
+            color: $color-white;
+            border: solid 1px $color-red;
+        }
     }
 </style>
