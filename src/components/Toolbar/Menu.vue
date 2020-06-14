@@ -4,7 +4,9 @@
 		<ul class="menu__popup" v-if="isOpen">
 			<li class="menu__item">Perfil</li>
 			<li class="menu__item">Configurações</li>
-			<li class="menu__item">Sair</li>
+			<li class="menu__item">
+				<a href @click.prevent="signOut()">Sair</a>
+			</li>
 		</ul>
 	</div>
 </template>
@@ -20,6 +22,10 @@ export default {
 	methods: {
 		togglePopup() {
 			this.isOpen = !this.isOpen;
+		},
+		signOut() {
+			localStorage.removeItem('USER_TOKEN');
+			this.$router.push('/');
 		}
 	},
 	data() {

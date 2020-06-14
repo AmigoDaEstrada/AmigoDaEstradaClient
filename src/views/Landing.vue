@@ -3,16 +3,16 @@
 
     <div class="landing__wrapper">
         <header class="landing__header" :class="{ 'landing__header--sign-up': signUp }">
-                <div class="presentation">
-                    <Logo />
-                    <p class="user-name">Olá <strong>{{ userName }}</strong>, como está a estrada?</p>
-                </div>
+            <div class="presentation">
+                <Logo />
+                <p class="user-name">Olá <strong>{{ this.$store.state.user.name }}</strong>, como está a estrada?</p>
+            </div>
 
-                <SignUpInstructions 
-                    class="header-signup-instructions" 
-                    @changePhase="changePhase" 
-                    :phase="signUpPhase" 
-                />
+            <SignUpInstructions 
+                class="header-signup-instructions" 
+                @changePhase="changePhase" 
+                :phase="signUpPhase" 
+            />
         </header>
         
         <div class="landing__body">
@@ -49,8 +49,7 @@ export default {
       return {
           signUp: false,
           signUpPhase: 1,
-          loggedIn: false,
-          userName: 'João'
+          loggedIn: false
       };
   },
   methods: {
@@ -60,9 +59,13 @@ export default {
       },
       showWellcome() {
           this.loggedIn = true;
-          
           setTimeout(() => {
-              this.$router.push('/home');
+              if (this.$store.state.user.new) {
+                  this.$router.push('/boarding');
+              }
+              else {
+                  this.$router.push('/home');
+              }
           }, 4000);
       },
       goLogin() {
@@ -122,7 +125,7 @@ export default {
 
             .presentation {
                 position: relative;       
-                top: 38px;
+                top: 28px;
             }
 
             &--sign-up {

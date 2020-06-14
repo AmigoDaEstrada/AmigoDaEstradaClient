@@ -1,19 +1,19 @@
 <template>
-    <div class="active-channel">
+    <div class="active-channel" v-if="activeChannel.id">
         <div class="active-channel__pictures-preview">
-            <img src="https://picsum.photos/30" class="active-channel__preview-pic">
-            <img src="https://picsum.photos/30" class="active-channel__preview-pic">
+            <img :src="activeChannel.users[0].picture" class="active-channel__preview-pic">
+            <img :src="activeChannel.users[1].picture" class="active-channel__preview-pic">
         </div>
 
         <div class="active-channel__info">
             <div class="active-channel__name">
-                <span>Canal Geral</span>
+                <span>{{ activeChannel.name }}</span>
 
                 <a href class="active-channel__add-member">
                     <i class="material-icons icon">group_add</i>
                 </a>
             </div>
-            <span class="active-channel__members">37 caminhoneiros conectados</span>
+            <span class="active-channel__members">{{ activeChannel.users.length }} caminhoneiros conectados</span>
             <a href class="active-channel__see-all">Ver todos</a>
         </div>
     </div>
@@ -22,9 +22,13 @@
 <script>
 export default {
     props: {
-        active: Boolean,
         label: String,
         destiny: String
+    },
+    computed: {
+        activeChannel() {
+            return this.$store.state.activeChannel;
+        }
     }
 }
 </script>

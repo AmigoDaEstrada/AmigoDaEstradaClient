@@ -13,7 +13,7 @@ export default {
     MobileOnlyWarning
   },
   mounted() {
-    /*let token = localStorage.getItem('USER_TOKEN');
+    let token = localStorage.getItem('USER_TOKEN');
     let basePath = '/';
     let currentPath = this.$router.currentRoute.path;
 
@@ -22,11 +22,11 @@ export default {
     }
     else if (token) {
       this.$store.dispatch('loadUserInfo', { token }).then(() => {
-        if (currentPath !== '/home') {
+        if (['/home', '/boarding'].indexOf(currentPath) === -1) {
           this.$router.push('/home');
         }
       });
-    }*/
+    }
   }
 }
 </script>

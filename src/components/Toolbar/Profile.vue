@@ -4,7 +4,6 @@
             <img src="https://picsum.photos/80" />
         </div>
         <div class="profile__info">
-            <span class="profile__name">João da Silva</span>
             <span class="profile__name">{{ user.name }}</span>
         </div>
     </a>

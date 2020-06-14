@@ -2,10 +2,40 @@ import axios from 'axios'
 
 let users = [
     {
-        name: 'Fábio Lucas Romeiro de Castro',
-        email: 'flromeiroc@gmail.com',
+        id: 1,
+        name: 'Joaquim Ferraz',
+        email: 'joaquim@gmail.com',
         password: '123456',
+        picture: 'https://picsum.photos/80',
+        new: false,
         token: 'qweyu2u948jeisdj'
+    },
+    {
+        id: 2,
+        name: 'Bino Correa',
+        email: 'bino@gmail.com',
+        password: '123456',
+        picture: 'https://picsum.photos/80',
+        new: false,
+        token: 'oiqhwe921312e0jd'
+    },
+    {
+        id: 3,
+        name: 'Pedro Matias',
+        email: 'pedro@gmail.com',
+        password: '123456',
+        picture: 'https://picsum.photos/80',
+        new: false,
+        token: 'iuqh941y2381y983'
+    },
+    {
+        id: 4,
+        name: 'Paula Martinez',
+        email: 'paula@gmail.com',
+        password: '123456',
+        picture: 'https://picsum.photos/80',
+        new: false,
+        token: 'kfnvoerui2309487'
     }
 ];
 
@@ -20,6 +50,7 @@ export default {
 
     registUser(user) {
         return new Promise(resolve => {
+            user.new = true;
             users.push(user);
             resolve(user);
         });
@@ -29,12 +60,7 @@ export default {
         return new Promise(resolve => {
             let user = users.filter(user => user.token === token)[0];
             
-            resolve({});
-            /*resolve({
-                name: user.name,
-                email: user.email,
-                token: user.token
-            });*/
+            resolve(user);
         });
     }
 };

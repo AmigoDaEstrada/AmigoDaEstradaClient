@@ -178,7 +178,6 @@ export default {
             }
         },
         canProceed() {
-            return true;
             if (this.signUp) {
                 if (this.phase === 1) {
                     return this.name.trim() && this.phoneIsValid(this.phone.trim()) && this.emailIsValid(this.email.trim());
@@ -208,29 +207,36 @@ export default {
             if (this.signUp) {
                 UserService
                     .registUser({
+                        email: this.email,
                         name: this.name,
+                        phone: this.phone,
+                        cpf: this.cpf,
+                        cnh: this.cnh,
                         password: this.password,
-                        email: this.email
                     })
-                    .then(() => this.justSignedUp = true);
+                    .then(() => {
+                        this.$router.push
+                        this.signUp = false;
+                        this.password = '';
+                    });
             }
             else {
-                /*UserService
+                UserService
                     .authenticateUser({
                         email: this.email,
                         password: this.password
                     })
                     .then(token => {
-                        //if (token) {
-                            window.localStorage.setItem('USER_TOKEN', token);*/
-                            this.$store.dispatch('loadUserInfo', { token: '' }).then(() => {
+                        if (token) {
+                            window.localStorage.setItem('USER_TOKEN', token);
+                            this.$store.dispatch('loadUserInfo', { token }).then(() => {
                                 this.$emit('login');
                             });
-                        //}
-                        //else {
-                        //    alert('ERROU');
-                        //}
-                    //});
+                        }
+                        else {
+                            alert('ERROU');
+                        }
+                    });
             }
         }
     }

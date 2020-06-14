@@ -67,6 +67,15 @@ export default {
                         this.recognizing = true;
                     }
 
+                    if (this.$store.state.activeChannel.id) {
+                        if (transcriptionNormalized.includes('CAMBIO DESLIGO')) {
+                            this.$store.commit('turnCambioOn');
+                        }
+                        else if (transcriptionNormalized.includes('CAMBIO')) {
+                            this.$store.commit('turnCambioOff');
+                        }
+                    }
+
                     if (this.recognizing) {
                         
                         this.transcription += transcriptionNormalized;

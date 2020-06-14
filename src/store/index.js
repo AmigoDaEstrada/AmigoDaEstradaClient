@@ -6,20 +6,26 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    phases: {
-      1: 'Cadastro Inicial',
-      2: 'Avaliação Inicial',
-      3: 'Cadastro Detalhado',
-      4: 'Avaliação Detalhada',
-      5: 'Reunião',
-      6: 'Entrega'
-    },
-    user: {}
+    activeChannel: {},
+    user: {},
+    cambio: false
   },
   mutations: {
     addUserInfo(state, { user }) {
       state.user = user;
-    }
+    },
+    addActiveChannel(state, { channel }) {
+      state.activeChannel = channel;
+    },
+    removeActiveChannel(state) {
+      state.activeChannel = {};
+    },
+    turnCambioOn(state) {
+      state.cambio = true;
+    },
+    turnCambioOff(state) {
+      state.cambio = true;
+    },
   },
   actions: {
     loadUserInfo(context, { token }) {

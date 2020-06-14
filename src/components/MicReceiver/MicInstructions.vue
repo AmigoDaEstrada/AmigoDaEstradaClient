@@ -1,6 +1,6 @@
 <template>
-    <div class="mic-instructions">
-        <i class="material-icons mic-instructions__icon">mic_off</i>
+    <div class="mic-instructions" v-if="$store.state.activeChannel.id">
+        <i class="material-icons mic-instructions__icon">{{ $store.state.cambio ? 'mic' : 'mic_off' }}</i>
         <div class="mic-instructions__text">
             <p>
                 Para <strong>se comunicar pelo canal</strong> fale <strong>cambio</strong> e 

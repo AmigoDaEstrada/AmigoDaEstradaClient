@@ -29,18 +29,40 @@
       />
 
       <div class="home__channel-links">
-        <ChannelLink class="home__channel-link" icon="group" label="Canal Geral" @click="toggleMenu('GENERAL')" :active="activeMenu === 'GENERAL'" />
-        <ChannelLink class="home__channel-link" icon="person" label="Canal Privado" @click="toggleMenu('PRIVATE')" :active="activeMenu === 'PRIVATE'" />
-        <ChannelLink class="home__channel-link" icon="contacts" label="Contatos" @click="toggleMenu('CONTACTS')" :active="activeMenu === 'CONTACTS'" />
+        <ChannelLink 
+          class="home__channel-link" 
+          icon="group" 
+          label="Canal Geral"
+          @click="toggleMenu('GENERAL')" 
+          :active="activeMenu === 'GENERAL'"
+        />
+        <ChannelLink 
+          class="home__channel-link" 
+          icon="person" 
+          label="Canal Privado" 
+          @click="toggleMenu('PRIVATE')" 
+          :active="activeMenu === 'PRIVATE'"
+        />
+        <ChannelLink 
+          class="home__channel-link" 
+          icon="contacts" 
+          label="Contatos" 
+          @click="toggleMenu('CONTACTS')" 
+          :active="activeMenu === 'CONTACTS'"
+        />
       </div>
 
-      <ActiveChannel class="home__active-channel" v-if="activeMenu === 'GENERAL'" />
-
-      <CurrentTalker class="home__current-talker" v-if="activeMenu === 'GENERAL'" />
-
-      <MicInstructions class="home__mic-instructions" v-if="activeMenu === 'GENERAL'" />
-
       <ChannelGroups class="home__groups" v-if="activeMenu === 'PRIVATE'" />
+
+      <ActiveChannel class="home__active-channel" />
+
+      <CurrentTalker class="home__current-talker" v-if="activeMenu !== 'CONTACT' && $store.state.activeChannel.id" />
+
+      <MicInstructions class="home__mic-instructions" v-if="activeMenu !== 'CONTACT'" />
+
+      <CustomButton class="home__leave-channel" variant="white-empty" v-if="$store.state.activeChannel.id" @click="activeMenu = ''; $store.commit('removeActiveChannel')">
+        Sair do canal
+      </CustomButton>
 
       <PersonalContacts class="home__contacts" v-if="activeMenu === 'CONTACTS'" />
 
@@ -74,6 +96,7 @@ import HomeLink from '@/components/Home/HomeLink.vue'
 import ActiveChannel from '@/components/Home/ActiveChannel.vue'
 import CurrentTalker from '@/components/Home/CurrentTalker.vue'
 import MicInstructions from '@/components/MicReceiver/MicInstructions.vue'
+import ChannelService from '@/services/ChannelService.js'
 
 export default {
   name: 'Home',
@@ -99,9 +122,18 @@ export default {
     toggleMenu(menu) {
       if (this.activeMenu === menu) {
         this.activeMenu = '';
+        this.$store.commit('removeActiveChannel');
       }
       else {
         this.activeMenu = menu;
+
+        if (this.activeMenu === 'GENERAL') {
+          ChannelService
+            .getGeneralChannel()
+            .then(channel => {
+              this.$store.commit('addActiveChannel', { channel });
+            });
+        }
       }
     },
     selectProject(project) {
@@ -202,7 +234,8 @@ export default {
     &__current-talker,
     &__mic-instructions,
     &__contacts,
-    &__groups {
+    &__groups,
+    &__leave-channel {
       margin-top: spacing(4);
       width: 100%;
     }
