@@ -28,5 +28,8 @@ $font-weight-bold: 700;
 $font-weight-extra-bold: 800;
 $font-weight-black: 900;
 
-$font-family-gilroy: 'Gilroy', sans-serif;
-$font-family-roboto: 'Roboto', sans-serif;
+$font-family-gilroy-raw: 'Gilroy';
+$font-family-gilroy: $font-family-gilroy-raw, sans-serif;
+
+$font-family-roboto-raw: 'Roboto';
+$font-family-roboto: $font-family-roboto-raw, sans-serif;

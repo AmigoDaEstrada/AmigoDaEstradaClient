@@ -3,7 +3,8 @@
         <h4 class="signup-instructions__title">
             {{ phases[phase - 1].title }}
         </h4>
-        <h5 class="signup-instructions__description">
+
+        <h5 v-if="phases[phase - 1].description" class="signup-instructions__description">
             {{ phases[phase - 1].description }}
         </h5>
 
@@ -41,12 +42,11 @@ export default {
                     description: 'Preencha os seus dados e conecte-se.'
                 },
                 {
-                    title: 'Para a sua segurança e de outros caminhoneiros',
-                    description: 'Preencha os seus dados e conecte-se.'
+                    title: 'Sistema de Segurança',
+                    description: 'Forneça seus documentos para que possamos conferir sua autenticidade.'
                 },
                 {
-                    title: 'Para a sua segurança e de outros',
-                    description: 'Preencha os seus dados e conecte-se.'
+                    title: 'Obrigado por preencher com todos seus dados!'
                 }
             ]
         };
@@ -60,26 +60,28 @@ export default {
         text-align: center;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        min-height: 105px;
+        max-height: 105px;
 
         &__title {
             text-transform: uppercase;
             font-size: 16px;
-            margin-bottom: spacing(1);
             font-weight: $font-weight-black;
             line-height: 1.3em;
             max-width: 80%;
         }
 
         &__description {
+            margin-top: spacing(1);
             line-height: 1.3em;
+            max-width: 80%;
         }
 
         &__navigation {
             display: flex;
             align-items: center;
-            margin-top: spacing(2);
+            margin-top: auto;
         }
 
         &__phase-button {

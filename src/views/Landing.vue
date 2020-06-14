@@ -8,7 +8,11 @@
                     <p class="user-name">Olá <strong>{{ userName }}</strong>, como está a estrada?</p>
                 </div>
 
-                <SignUpInstructions class="header-signup-instructions" @changePhase="changePhase" :phase="signUpPhase" />
+                <SignUpInstructions 
+                    class="header-signup-instructions" 
+                    @changePhase="changePhase" 
+                    :phase="signUpPhase" 
+                />
         </header>
         
         <div class="landing__body">
@@ -18,6 +22,7 @@
                 @login="showWellcome"
                 @changePhase="changePhase"
                 class="landing__login"
+                :phase="signUpPhase"
             />
         </div>
     </div>
@@ -50,6 +55,7 @@ export default {
   },
   methods: {
       changePhase(phase) {
+          console.log(phase);
           this.signUpPhase = phase;
       },
       showWellcome() {

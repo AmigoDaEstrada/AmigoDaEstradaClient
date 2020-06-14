@@ -40,7 +40,7 @@ export default {
         &__input {
             padding: spacing(2) spacing(2);
             border: solid 1px $color-gray;
-            font-family: 'Work Sans', sans-serif;
+            font-family: $font-family-roboto;
             border-radius: 8px;
             font-size: 14px;
             background-color: $color-gray-light;

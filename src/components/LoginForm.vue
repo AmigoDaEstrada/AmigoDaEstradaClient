@@ -1,8 +1,9 @@
 <template>
     <form class="login-form" :class="{ 'login-form--sign-up': signUp }" @submit.prevent="proceed()">
+
         <h5 class="login-form__title">Para entrar preencha seus dados abaixo</h5>
         
-        <div class="login-form__field" v-if="signUp && signUpPhase === 1">
+        <div class="login-form__field" v-if="signUp && phase === 1">
             <CustomInput 
                 v-model="name" 
                 id="name" 
@@ -11,7 +12,7 @@
                 placeholder="Nome"
             />
         </div>
-        <div class="login-form__field" v-if="!signUp || (signUp && signUpPhase === 1)">
+        <div class="login-form__field" v-if="!signUp || (signUp && phase === 1)">
             <CustomInput 
                 v-model="email" 
                 id="email" 
@@ -20,7 +21,7 @@
                 placeholder="E-mail"
             />
         </div>
-        <div class="login-form__field" v-if="signUp && signUpPhase === 1">
+        <div class="login-form__field" v-if="signUp && phase === 1">
             <CustomInput 
                 v-model="phone" 
                 id="phone" 
@@ -29,7 +30,16 @@
                 placeholder="+ 55"
             />
         </div>
-        <div class="login-form__field" v-if="signUp && signUpPhase === 2">
+        <div class="login-form__field" v-if="!signUp || (signUp && phase === 1)">
+            <CustomInput 
+                v-model="password" 
+                id="password" 
+                label="Escreva a sua senha"
+                type="password" 
+                placeholder="Senha"
+            />
+        </div>
+        <div class="login-form__field" v-if="signUp && phase === 2">
             <CustomInput 
                 v-model="cpf" 
                 id="cpf" 
@@ -38,7 +48,7 @@
                 placeholder="CPF"
             />
         </div>
-        <div class="login-form__field" v-if="signUp && signUpPhase === 2">
+        <div class="login-form__field" v-if="signUp && phase === 2">
             <CustomInput 
                 v-model="cnh" 
                 id="cnh" 
@@ -47,7 +57,7 @@
                 placeholder="CNH"
             />
         </div>
-        <div class="login-form__field login-form__upload-picture" v-if="signUp && signUpPhase === 2">
+        <div class="login-form__field login-form__upload-picture" v-if="signUp && phase === 2">
             <div class="picture-upload-instructions">
                 <i class="material-icons icon">camera_alt</i>
                 <p class="text">
@@ -58,27 +68,11 @@
             <CustomButton variant="white" @click="loadPicture()" type="button">
                 Carregar foto 
             </CustomButton>
+
+            <a class="picture-example" href>Ver exemplo de como fazer a foto.</a>
         </div>
 
-        <div class="login-form__field" v-if="!signUp || (signUp && signUpPhase === 3)">
-            <CustomInput 
-                v-model="password" 
-                id="password" 
-                label="Escreva a sua senha"
-                type="password" 
-                placeholder="Senha"
-            />
-        </div>
-
-        <div class="login-form__field" v-if="signUp && signUpPhase === 3">
-            <CustomInput 
-                v-model="password2" 
-                id="password-2" 
-                label="Escreva a sua senha novamente"
-                type="password" 
-                placeholder="Mesma senha para confirmar"
-            />
-        </div>
+        <SignUpConclusionMessage v-if="signUp && phase === 3" />
 
         <div class="login-form__field">
             <CustomButton class="login-form__button" type="submit" :disabled="!canProceed()" v-if="!signUp">
@@ -93,7 +87,7 @@
                 type="button" 
                 :variant="signUp ? 'blue' : 'white'" 
                 class="login-form__button" 
-                v-if="!signUp || (signUp && signUpPhase === 3)"
+                v-if="!signUp || (signUp && phase === 3)"
             >
                 Cadastrar-se
             </CustomButton>
@@ -103,7 +97,7 @@
                 class="login-form__button" 
                 type="button" 
                 :disabled="!canProceed()" 
-                v-if="signUp && signUpPhase < 3"
+                v-if="signUp && phase < 3"
             >
                 Proximo
             </CustomButton>
@@ -113,7 +107,7 @@
                 class="login-form__button" 
                 type="button" 
                 variant="white"
-                v-if="signUp && signUpPhase >= 1"
+                v-if="signUp && phase >= 1"
             >
                 Voltar
             </CustomButton>
@@ -125,6 +119,7 @@
 import CustomInput from '@/components/Forms/CustomInput.vue';
 import CustomButton from '@/components/Forms/CustomButton.vue';
 import CustomSelect from '@/components/Forms/CustomSelect.vue';
+import SignUpConclusionMessage from '@/components/SignUpConclusionMessage.vue';
 import UserService from '@/services/UserService.js';
 
 
@@ -134,6 +129,10 @@ export default {
         CustomInput,
         CustomButton,
         CustomSelect,
+        SignUpConclusionMessage
+    },
+    props: {
+        phase: Number
     },
     data() {
         return {
@@ -144,9 +143,7 @@ export default {
             cpf: '',
             cnh: '',
             password: '',
-            password2: '',
-            signUp: false,
-            signUpPhase: 1
+            signUp: false
         };
     },
     methods: {
@@ -158,17 +155,15 @@ export default {
             this.$emit('signUp');
         },
         goToNextPhase() {
-            this.signUpPhase += 1;
-            this.$emit('changePhase', this.signUpPhase);
+            this.$emit('changePhase', this.phase + 1);
         },
         goToLastPhase() {
-            if (this.signUpPhase === 1) {
+            if (this.phase === 1) {
                 this.signUp = false;
                 this.$emit('closeSignUp');
             }
             else {
-                this.signUpPhase -= 1;
-                this.$emit('changePhase', this.signUpPhase);
+                this.$emit('changePhase', this.phase - 1);
             }
         },
         getTitleMessage() {
@@ -183,15 +178,16 @@ export default {
             }
         },
         canProceed() {
+            return true;
             if (this.signUp) {
-                if (this.signUpPhase === 1) {
+                if (this.phase === 1) {
                     return this.name.trim() && this.phoneIsValid(this.phone.trim()) && this.emailIsValid(this.email.trim());
                 }
-                else if (this.signUpPhase === 2) {
+                else if (this.phase === 2) {
                     return this.cpfIsValid(this.cpf.trim()) /* && Foto com CNH */;
                 }
-                else if (this.signUpPhase === 3) {
-                    return this.password && this.password2 && this.password === this.password2;
+                else if (this.phase === 3) {
+                    return this.password;
                 }
             }
             else {
@@ -322,6 +318,13 @@ export default {
             .hiden-upload {
                 opacity: 0;
                 position: absolute;
+            }
+
+            .picture-example {
+                font-weight: $font-weight-semibold;
+                color: $color-black;
+                text-align: center;
+                margin-top: spacing(2);
             }
         }
 

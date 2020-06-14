@@ -60,7 +60,7 @@ export default {
         &__textarea {
             padding: spacing(1) spacing(2);
             border: solid 1px $color-gray-light;
-            font-family: 'Work Sans', sans-serif;
+            font-family: $font-family-roboto;
             border-radius: 4px;
             font-size: 14px;
             flex-grow: 1;

@@ -30,7 +30,7 @@ export default {
         border-radius: 50px;
         background-color: $color-blue;
         color: $color-white;
-        font-family: 'Open Sans', sans-serif;
+        font-family: $font-family-roboto;
         font-weight: $font-weight-semibold;
         font-size: 16px;
         transition: box-shadow .2s ease-in-out, background-color .2s ease-in-out;
