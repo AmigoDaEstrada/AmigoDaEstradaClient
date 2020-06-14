@@ -1,5 +1,5 @@
 <template>
-    <a class="home-link" :class="{ 'home-link--active': active }" href>
+    <a class="home-link" @click.prevent="$emit('click')" :class="{ 'home-link--active': active }" href>
         <div class="home-link__box">
             <i class="material-icons icon">{{ icon }}</i>
         </div>
@@ -15,8 +15,7 @@ export default {
     props: {
         active: Boolean,
         label: String,
-        icon: String,
-        destiny: String
+        icon: String
     }
 }
 </script>
@@ -25,25 +24,30 @@ export default {
     .home-link {
 
         $this: &;
-        $box-radius: 20px;
 
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
+        height: 122px;
+        min-width: 100px;
 
         &__box {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 90px;
-            height: 90px;
-            border-radius: $box-radius;
+            width: 58px;
+            height: 58px;
+            border-radius: 15px;
             background-color: $color-white;
             opacity: .7;
+            margin: auto;
+            transition: width .4s ease-in-out, height .4s ease-in-out, opacity .4s ease-in-out, border-radius .4s ease-in-out;
 
             .icon {
                 color: $color-blue;
-                font-size: 50px;
+                font-size: 30px;
+                transition: font-size .4s ease-in-out;
             }
         }
 
@@ -57,8 +61,14 @@ export default {
         &--active {
 
             #{$this}__box {
-
+                width: 80px;
+                height: 80px;
+                border-radius: 21px;
                 opacity: 1;
+
+                .icon {
+                    font-size: 50px;
+                }
             }
         }
     }

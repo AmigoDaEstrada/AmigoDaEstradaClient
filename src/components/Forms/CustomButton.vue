@@ -47,6 +47,12 @@ export default {
             border: solid 1px $color-blue;
         }
 
+        &--white-empty {
+            background-color: rgba($color-white, 0);
+            color: $color-white;
+            border: solid 1px $color-white;
+        }
+
         &--red {
             background-color: $color-red;
             color: $color-white;

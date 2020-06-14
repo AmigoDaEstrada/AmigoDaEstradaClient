@@ -1,8 +1,6 @@
 <template>
     <a class="home-link" href>
         <i class="material-icons home-link__icon">{{ icon }}</i>
-
-        <div class="home-link__divisory"></div>
         
         <span class="home-link__label">
             {{ label }}
@@ -31,22 +29,15 @@ export default {
         align-items: center;
 
         &__icon {
-            font-size: 50px;
+            font-size: 40px;
             color: $color-white;
+            margin-bottom: spacing(1);
         }
 
         &__label {
-            font-size: 16px;
+            font-size: 14px;
             text-align: center;
             color: $color-white;
-        }
-
-        &__divisory {
-            width: 96px;
-            height: 13px;
-            border-radius: 13px;
-            background-color: $color-white;
-            margin: spacing(1) 0;
         }
     }
 </style>

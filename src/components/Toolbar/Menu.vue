@@ -1,40 +1,55 @@
 <template>
 	<div class="menu">
-		<Hamburguer class="toolbar__hamburguer" />
+		<Dots class="toolbar__Dots" @click="togglePopup()" />
+		<ul class="menu__popup" v-if="isOpen">
+			<li class="menu__item">Perfil</li>
+			<li class="menu__item">Configurações</li>
+			<li class="menu__item">Sair</li>
+		</ul>
 	</div>
 </template>
 
 <script>
-import Hamburguer from '@/components/Toolbar/Hamburguer.vue';
+import Dots from '@/components/Toolbar/Dots.vue';
 
 export default {
 	name: 'Menu',
 	components: {
-		Hamburguer
+		Dots
+	},
+	methods: {
+		togglePopup() {
+			this.isOpen = !this.isOpen;
+		}
 	},
 	data() {
 		return {
+			isOpen: false
 		};
 	}
 }
 </script>
 
 <style scoped lang="scss">
-.toolbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: calc(100% - #{spacing(3)} * 2);
-	height: 70px;
-	padding: 0 spacing(3);
-	background-color: white;
-	color: $color-blue;
-	box-shadow: shadow-depth(2);
+.menu {
+	position: relative;
 
-	&__search {
-		flex-grow: 1;
-		max-width: 600px;
-		margin: 0 spacing(3);
+	&__popup {
+		position: absolute;
+		top: 30px;
+		right: 0;
+		width: 133px;
+		background-color: $color-white;
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		height: 40px;
+		width: 100%;
+		font-weight: $font-weight-semibold;
+		color: $color-blue;
+		padding: 0 spacing(1);
 	}
 }
 </style>
