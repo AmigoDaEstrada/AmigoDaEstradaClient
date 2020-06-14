@@ -29,7 +29,7 @@ Nosso grupo abraçou a causa da saúde mental dos caminhoneiros partindo do prob
 Baseado em pesquisas feitas e dados analisados de sevidores publicos, o grupo concluíu como sendo a solução um rádio amador digital, onde o usuário poderá, por comando de voz, ter acesso a um bate papo, consultas com profissionais de saúde online e, inspirado pelo medo constante de assalto durante o trabalho, um botão de pânico.
 
 
-## Como configurar ambiente do Amigo da Estrada?
+## Como configurar o ambiente do Amigo da Estrada?
 
 Esta é a parte do Front-end do projeto que foi dividido em dois grandes módulos módulos:
 - [AmigoDaEstradaClient - Front end](https://github.com/AmigoDaEstrada/AmigoDaEstradaClient)
