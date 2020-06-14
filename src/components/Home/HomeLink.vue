@@ -1,6 +1,8 @@
 <template>
-    <a class="home-link" :class="{ 'home-link--active': active }" href>
-        <div class="home-link__box"></div>
+    <a class="home-link" href>
+        <i class="material-icons home-link__icon">{{ icon }}</i>
+
+        <div class="home-link__divisory"></div>
         
         <span class="home-link__label">
             {{ label }}
@@ -11,7 +13,7 @@
 <script>
 export default {
     props: {
-        active: Boolean,
+        icon: String,
         label: String,
         destiny: String
     }
@@ -28,34 +30,23 @@ export default {
         flex-direction: column;
         align-items: center;
 
-        &__box {
-            width: 100px;
-            height: 100px;
-            border-radius: $box-radius;
-            background-color: $color-white;
+        &__icon {
+            font-size: 50px;
+            color: $color-white;
         }
 
         &__label {
-            margin-top: spacing(2);
             font-size: 16px;
             text-align: center;
             color: $color-white;
         }
 
-        &--active {
-
-            #{$this}__box {
-                position: relative;
-
-                &::after {
-                    content: '';
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: $box-radius;
-                    background-color: rgba($color-blue-extra-light, .8);
-                }
-            }
+        &__divisory {
+            width: 96px;
+            height: 13px;
+            border-radius: 13px;
+            background-color: $color-white;
+            margin: spacing(1) 0;
         }
     }
 </style>

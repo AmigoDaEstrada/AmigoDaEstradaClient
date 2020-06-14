@@ -17,10 +17,10 @@
 
       <AmigaoReceiver class="home__amigao-receiver" />
 
-      <div class="home__links">
-        <HomeLink class="home__link" label="Canal Geral" destiny="" :active="true" />
-        <HomeLink class="home__link" label="Canal Privado" destiny="" />
-        <HomeLink class="home__link" label="Contatos" destiny="" />
+      <div class="home__channel-links">
+        <ChannelLink class="home__channel-link" icon="group" label="Canal Geral" destiny="" :active="true" />
+        <ChannelLink class="home__channel-link" icon="person" label="Canal Privado" destiny="" />
+        <ChannelLink class="home__channel-link" icon="contacts" label="Contatos" destiny="" />
       </div>
 
       <ActiveChannel class="home__active-channel" />
@@ -28,6 +28,19 @@
       <CurrentTalker class="home__current-talker" />
 
       <MicInstructions class="home__mic-instructions" />
+
+      <div class="home__links">
+        <HomeLink destiny="" class="home__link" label="Saúde" icon="local_hospital" />
+        <HomeLink destiny="" class="home__link" label="Mapa" icon="map" />
+        <HomeLink destiny="" class="home__link" label="Serviços" icon="room_service" />
+      </div>
+
+      <footer class="home__footer">
+        <h5 class="footer-title">Estou com dúvidas</h5>
+        <CustomButton class="footer-button" variant="white">
+          Quero falar com o suporte
+        </CustomButton>
+      </footer>
     </div>
   </div>
 </template>
@@ -38,6 +51,7 @@ import CustomButton from '@/components/Forms/CustomButton.vue'
 import Notifications from '@/components/Toolbar/Notifications.vue'
 import Logo from '@/components/Logo/Logo.vue'
 import AmigaoReceiver from '@/components/MicReceiver/AmigaoReceiver.vue'
+import ChannelLink from '@/components/Home/ChannelLink.vue'
 import HomeLink from '@/components/Home/HomeLink.vue'
 import ActiveChannel from '@/components/Home/ActiveChannel.vue'
 import CurrentTalker from '@/components/Home/CurrentTalker.vue'
@@ -50,10 +64,11 @@ export default {
     Logo,
     Notifications,
     CustomButton,
-    HomeLink,
+    ChannelLink,
     ActiveChannel,
     CurrentTalker,
     MicInstructions,
+    HomeLink,
     AmigaoReceiver
   },
   methods: {
@@ -106,8 +121,8 @@ export default {
     &__danger {
       display: block;
       height: 48px;
-      background-color: $color-red;
-      color: $color-white;
+      background-color: $color-yellow;
+      color: $color-black;
       width: 100%;
       display: flex;
       align-items: center;
@@ -133,6 +148,7 @@ export default {
       transform: rotateZ(45deg);
     }
 
+    &__channel-links,
     &__links {
       display: flex;
       align-items: center;
@@ -141,7 +157,7 @@ export default {
       width: 100%;
     }
 
-    &__link {
+    &__channel-link {
       margin: 0 spacing(1)/2;
     }
 
@@ -150,6 +166,25 @@ export default {
     &__mic-instructions {
       margin-top: spacing(4);
       width: 100%;
+    }
+
+    &__footer {
+      margin-top: spacing(4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      .footer-title {
+        font-size: 18px;
+        color: $color-white;
+        margin-bottom: spacing(2);
+        font-weight: $font-weight-semibold;
+      }
+
+      .footer-button {
+        width: 100%;
+      }
     }
   }
 </style>
